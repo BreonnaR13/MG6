@@ -64,8 +64,16 @@ public class Cat : MonoBehaviour
         //      collider.
         // You might want to check the Rigidbody2D scripting documentation
         //      for a useful variable :)
-        
 
+        _collider = gameObject.GetComponent<Collider2D>();
+
+        if (gameObject.GetComponent<Rigidbody2D>().linearVelocity.y > 0){
+            _collider.enabled = false;
+        } else {
+           _collider.enabled = true;
+        }
+        
+        //Debug.Log(gameObject.GetComponent<Rigidbody2D>().linearVelocity.y);
         
         // STEP 1 -------------------------------------------------------------
     }
