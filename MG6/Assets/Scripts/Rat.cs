@@ -24,7 +24,23 @@ public class Rat : MonoBehaviour
         //      more rats. (The spawning logic is written for you.)
         //
         // Also, shrink the original Rat by _shrinkAmount amount.
+
+        //Color[] _colors = [new Color(1, 0.7f, 0), new Color(1, 0, 0), new Color(0, 0, 1)];
+
+        if (collision.gameObject.tag == "Attack"){
+            for (int i = 0; i < _spawnAmount; i++){
+                SpawnSmallRat();
+            }
+            SpawnExplosion(_colors[_colorIndex]);
+            _colorIndex++;
+            if (_colorIndex == 3){
+                _colorIndex = 0;
+            }
+        }
         //
+
+
+
         // STEP 3
         // Additionally, call SpawnExplosion(), and pass in a different color
         //      every time.
