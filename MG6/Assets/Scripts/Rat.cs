@@ -28,6 +28,11 @@ public class Rat : MonoBehaviour
         //Color[] _colors = [new Color(1, 0.7f, 0), new Color(1, 0, 0), new Color(0, 0, 1)];
 
         if (collision.gameObject.tag == "Attack"){
+            Transform ratTrans = gameObject.GetComponent<Transform>();
+            Vector3 ratScale = ratTrans.localScale;
+            ratScale.x *= _shrinkAmount;
+            ratScale.y *= _shrinkAmount;
+            ratTrans.localScale = ratScale;
             for (int i = 0; i < _spawnAmount; i++){
                 SpawnSmallRat();
             }
@@ -38,7 +43,7 @@ public class Rat : MonoBehaviour
             }
         }
         //
-
+	
 
 
         // STEP 3
